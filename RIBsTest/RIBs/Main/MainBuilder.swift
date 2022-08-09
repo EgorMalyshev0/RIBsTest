@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol MainDependency: Dependency {
+protocol MainDependency: InfoDependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
 }
@@ -34,6 +34,7 @@ final class MainBuilder: Builder<MainDependency>, MainBuildable {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainViewController") as! MainViewController
         let interactor = MainInteractor(presenter: viewController)
         interactor.listener = listener
-        return MainRouter(interactor: interactor, viewController: viewController)
+        let infoBuilder = InfoBuilder(dependency: component.dependency)
+        return MainRouter(interactor: interactor, viewController: viewController, infoBuilder: infoBuilder)
     }
 }

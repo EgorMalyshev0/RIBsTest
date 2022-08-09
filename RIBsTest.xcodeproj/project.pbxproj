@@ -25,6 +25,12 @@
 		DE11E90828A26547006E2775 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E90428A26547006E2775 /* MainViewController.swift */; };
 		DE11E90928A26547006E2775 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E90528A26547006E2775 /* MainBuilder.swift */; };
 		DE11E90A28A26547006E2775 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E90628A26547006E2775 /* MainInteractor.swift */; };
+		DE11E90C28A28A78006E2775 /* MainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E90B28A28A78006E2775 /* MainItem.swift */; };
+		DE11E90E28A28B33006E2775 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E90D28A28B33006E2775 /* MainTableViewCell.swift */; };
+		DE11E91428A2986E006E2775 /* InfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91028A2986E006E2775 /* InfoRouter.swift */; };
+		DE11E91528A2986E006E2775 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91128A2986E006E2775 /* InfoViewController.swift */; };
+		DE11E91628A2986E006E2775 /* InfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91228A2986E006E2775 /* InfoBuilder.swift */; };
+		DE11E91728A2986E006E2775 /* InfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91328A2986E006E2775 /* InfoInteractor.swift */; };
 		DEA6CA9028A1173F00478218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA6CA8F28A1173F00478218 /* AppDelegate.swift */; };
 		DEA6CA9728A1173F00478218 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA6CA9528A1173F00478218 /* Main.storyboard */; };
 		DEA6CA9928A1174200478218 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEA6CA9828A1174200478218 /* Assets.xcassets */; };
@@ -54,6 +60,12 @@
 		DE11E90428A26547006E2775 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DE11E90528A26547006E2775 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		DE11E90628A26547006E2775 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		DE11E90B28A28A78006E2775 /* MainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItem.swift; sourceTree = "<group>"; };
+		DE11E90D28A28B33006E2775 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		DE11E91028A2986E006E2775 /* InfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRouter.swift; sourceTree = "<group>"; };
+		DE11E91128A2986E006E2775 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		DE11E91228A2986E006E2775 /* InfoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBuilder.swift; sourceTree = "<group>"; };
+		DE11E91328A2986E006E2775 /* InfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInteractor.swift; sourceTree = "<group>"; };
 		DEA6CA8C28A1173F00478218 /* RIBsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RIBsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA6CA8F28A1173F00478218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA6CA9628A1173F00478218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -137,8 +149,21 @@
 				DE11E90428A26547006E2775 /* MainViewController.swift */,
 				DE11E90528A26547006E2775 /* MainBuilder.swift */,
 				DE11E90628A26547006E2775 /* MainInteractor.swift */,
+				DE11E90B28A28A78006E2775 /* MainItem.swift */,
+				DE11E90D28A28B33006E2775 /* MainTableViewCell.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		DE11E90F28A2985C006E2775 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				DE11E91028A2986E006E2775 /* InfoRouter.swift */,
+				DE11E91128A2986E006E2775 /* InfoViewController.swift */,
+				DE11E91228A2986E006E2775 /* InfoBuilder.swift */,
+				DE11E91328A2986E006E2775 /* InfoInteractor.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 		DEA6CA8328A1173F00478218 = {
@@ -180,6 +205,7 @@
 				DE11E8E928A12365006E2775 /* Login */,
 				DE11E8EC28A12F06006E2775 /* CreateAccount */,
 				DE11E90228A26529006E2775 /* Main */,
+				DE11E90F28A2985C006E2775 /* Info */,
 			);
 			path = RIBs;
 			sourceTree = "<group>";
@@ -311,7 +337,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE11E8E628A12358006E2775 /* LoginViewController.swift in Sources */,
+				DE11E90C28A28A78006E2775 /* MainItem.swift in Sources */,
 				DE11E90728A26547006E2775 /* MainRouter.swift in Sources */,
+				DE11E91728A2986E006E2775 /* InfoInteractor.swift in Sources */,
 				DEA6CA9028A1173F00478218 /* AppDelegate.swift in Sources */,
 				DE11E8FC28A1367F006E2775 /* RootInteractor.swift in Sources */,
 				DE11E8FE28A13879006E2775 /* WebService.swift in Sources */,
@@ -319,6 +347,7 @@
 				DE11E8E728A12358006E2775 /* LoginBuilder.swift in Sources */,
 				DE11E90828A26547006E2775 /* MainViewController.swift in Sources */,
 				DE11E8F228A12F24006E2775 /* CreateAccountViewController.swift in Sources */,
+				DE11E90E28A28B33006E2775 /* MainTableViewCell.swift in Sources */,
 				DE11E90A28A26547006E2775 /* MainInteractor.swift in Sources */,
 				DE11E8F328A12F24006E2775 /* CreateAccountBuilder.swift in Sources */,
 				DE11E8E828A12358006E2775 /* LoginInteractor.swift in Sources */,
@@ -326,9 +355,12 @@
 				DE11E8EB28A1258F006E2775 /* WebServicing.swift in Sources */,
 				DE11E8FB28A1367F006E2775 /* RootBuilder.swift in Sources */,
 				DE11E90928A26547006E2775 /* MainBuilder.swift in Sources */,
+				DE11E91428A2986E006E2775 /* InfoRouter.swift in Sources */,
 				DE11E8F928A1367F006E2775 /* RootRouter.swift in Sources */,
 				DE11E8F128A12F24006E2775 /* CreateAccountRouter.swift in Sources */,
 				DE11E8E528A12358006E2775 /* LoginRouter.swift in Sources */,
+				DE11E91528A2986E006E2775 /* InfoViewController.swift in Sources */,
+				DE11E91628A2986E006E2775 /* InfoBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

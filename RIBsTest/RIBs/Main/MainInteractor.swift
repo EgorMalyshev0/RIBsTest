@@ -9,7 +9,8 @@ import RIBs
 import RxSwift
 
 protocol MainRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func showItem(_ item: MainItem)
+    func detachInfo()
 }
 
 protocol MainPresentable: Presentable {
@@ -44,12 +45,21 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     }
     
     private func cleanProfile() {
-        
+        UserDefaults.standard.removeObject(forKey: "ribs_userid")
     }
     
     // MARK: - MainPresentableListener
     func didTapLogOut() {
         cleanProfile()
         listener?.dismissMainFlow()
+    }
+    
+    func didTapItem(_ item: MainItem) {
+        router?.showItem(item)
+    }
+    
+    // MARK: - InfoListener
+    func infoDidPop() {
+        router?.detachInfo()
     }
 }

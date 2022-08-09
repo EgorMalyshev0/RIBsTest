@@ -33,7 +33,7 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     override func didLoad() {
         super.didLoad()
-        routeToLogin()
+//        routeToLogin()
     }
     
     func routeToLogin() {

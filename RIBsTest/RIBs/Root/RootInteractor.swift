@@ -36,12 +36,17 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
+        
+        isLoggedIn() ? router?.routeToMain() : router?.routeToLogin()
     }
 
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    private func isLoggedIn() -> Bool {
+        return UserDefaults.standard.string(forKey: "ribs_userid") != nil
     }
     
     // MARK: - LoginListener

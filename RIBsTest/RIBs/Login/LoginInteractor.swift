@@ -46,6 +46,10 @@ final class LoginInteractor: PresentableInteractor<LoginPresentable>, LoginInter
         // TODO: Pause any business logic.
     }
     
+    private func saveUserId(_ id: String) {
+        UserDefaults.standard.set(id, forKey: "ribs_userid")
+    }
+    
     // MARK: - LoginPresentableListener
     func didTapLogin(username: String, password: String) {
         presenter.showActivityIndicator(true)
@@ -53,7 +57,7 @@ final class LoginInteractor: PresentableInteractor<LoginPresentable>, LoginInter
             self?.presenter.showActivityIndicator(false)
             switch result {
             case let .success(userID):
-                print(userID)
+                self?.saveUserId(userID)
                 self?.listener?.dismissLoginFlow()
             case let .failure(error):
                 print(error.localizedDescription)

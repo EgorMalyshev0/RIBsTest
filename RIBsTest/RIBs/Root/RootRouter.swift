@@ -44,12 +44,13 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         attachLogin()
     }
     
-    func routeToMain() {
+    @discardableResult
+    func routeToMain() -> MainActionableItem {
         if let loginRouter = loginRouter {
             detachChild(loginRouter)
             self.loginRouter = nil
         }
-        attachMain()
+        return attachMain()
     }
     
     private func attachLogin() {
@@ -60,12 +61,12 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         viewController.present(router.viewControllable)
     }
     
-    private func attachMain() {
-        guard mainRouter == nil else { return }
-        let router = mainBuilder.build(withListener: interactor)
-        mainRouter = router
-        attachChild(router)
-        viewController.present(router.viewControllable)
+    private func attachMain() -> MainActionableItem {
+        let result = mainBuilder.build(withListener: interactor)
+        mainRouter = result.router
+        attachChild(result.router)
+        viewController.present(result.router.viewControllable)
+        return result.actionableItem
     }
 
 }

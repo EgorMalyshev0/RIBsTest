@@ -31,6 +31,8 @@
 		DE11E91528A2986E006E2775 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91128A2986E006E2775 /* InfoViewController.swift */; };
 		DE11E91628A2986E006E2775 /* InfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91228A2986E006E2775 /* InfoBuilder.swift */; };
 		DE11E91728A2986E006E2775 /* InfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91328A2986E006E2775 /* InfoInteractor.swift */; };
+		DE11E91928A38F9E006E2775 /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91828A38F9E006E2775 /* URLHandler.swift */; };
+		DE11E91D28A392DC006E2775 /* OpenInfoWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11E91C28A392DB006E2775 /* OpenInfoWorkflow.swift */; };
 		DEA6CA9028A1173F00478218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA6CA8F28A1173F00478218 /* AppDelegate.swift */; };
 		DEA6CA9728A1173F00478218 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA6CA9528A1173F00478218 /* Main.storyboard */; };
 		DEA6CA9928A1174200478218 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEA6CA9828A1174200478218 /* Assets.xcassets */; };
@@ -66,6 +68,8 @@
 		DE11E91128A2986E006E2775 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		DE11E91228A2986E006E2775 /* InfoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBuilder.swift; sourceTree = "<group>"; };
 		DE11E91328A2986E006E2775 /* InfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInteractor.swift; sourceTree = "<group>"; };
+		DE11E91828A38F9E006E2775 /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
+		DE11E91C28A392DB006E2775 /* OpenInfoWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenInfoWorkflow.swift; sourceTree = "<group>"; };
 		DEA6CA8C28A1173F00478218 /* RIBsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RIBsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA6CA8F28A1173F00478218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA6CA9628A1173F00478218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				DE11E90028A23E66006E2775 /* Web */,
+				DE11E91828A38F9E006E2775 /* URLHandler.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -166,6 +171,22 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
+		DE11E91A28A3929E006E2775 /* Workflows */ = {
+			isa = PBXGroup;
+			children = (
+				DE11E91B28A392BB006E2775 /* OpenInfoWorkflow */,
+			);
+			path = Workflows;
+			sourceTree = "<group>";
+		};
+		DE11E91B28A392BB006E2775 /* OpenInfoWorkflow */ = {
+			isa = PBXGroup;
+			children = (
+				DE11E91C28A392DB006E2775 /* OpenInfoWorkflow.swift */,
+			);
+			path = OpenInfoWorkflow;
+			sourceTree = "<group>";
+		};
 		DEA6CA8328A1173F00478218 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +211,7 @@
 				DEA6CA8F28A1173F00478218 /* AppDelegate.swift */,
 				DEA6CA9528A1173F00478218 /* Main.storyboard */,
 				DE11E8FF28A23E5E006E2775 /* Services */,
+				DE11E91A28A3929E006E2775 /* Workflows */,
 				DEA6CAA528A118DA00478218 /* RIBs */,
 				DEA6CA9828A1174200478218 /* Assets.xcassets */,
 				DEA6CA9A28A1174200478218 /* LaunchScreen.storyboard */,
@@ -342,12 +364,14 @@
 				DE11E91728A2986E006E2775 /* InfoInteractor.swift in Sources */,
 				DEA6CA9028A1173F00478218 /* AppDelegate.swift in Sources */,
 				DE11E8FC28A1367F006E2775 /* RootInteractor.swift in Sources */,
+				DE11E91928A38F9E006E2775 /* URLHandler.swift in Sources */,
 				DE11E8FE28A13879006E2775 /* WebService.swift in Sources */,
 				DE11E8FA28A1367F006E2775 /* RootViewController.swift in Sources */,
 				DE11E8E728A12358006E2775 /* LoginBuilder.swift in Sources */,
 				DE11E90828A26547006E2775 /* MainViewController.swift in Sources */,
 				DE11E8F228A12F24006E2775 /* CreateAccountViewController.swift in Sources */,
 				DE11E90E28A28B33006E2775 /* MainTableViewCell.swift in Sources */,
+				DE11E91D28A392DC006E2775 /* OpenInfoWorkflow.swift in Sources */,
 				DE11E90A28A26547006E2775 /* MainInteractor.swift in Sources */,
 				DE11E8F328A12F24006E2775 /* CreateAccountBuilder.swift in Sources */,
 				DE11E8E828A12358006E2775 /* LoginInteractor.swift in Sources */,

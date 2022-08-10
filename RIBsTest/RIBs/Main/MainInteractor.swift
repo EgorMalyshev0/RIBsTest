@@ -22,8 +22,8 @@ protocol MainListener: AnyObject {
     func dismissMainFlow()
 }
 
-final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteractable, MainPresentableListener {
-
+final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteractable, MainPresentableListener, MainActionableItem {
+    
     weak var router: MainRouting?
     weak var listener: MainListener?
 
@@ -61,5 +61,12 @@ final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteract
     // MARK: - InfoListener
     func infoDidPop() {
         router?.detachInfo()
+    }
+    
+    func openInfo(with item: MainItem?) -> Observable<(MainActionableItem, ())> {
+        if let item = item {
+            router?.showItem(item)
+        }
+        return Observable.just((self, ()))
     }
 }

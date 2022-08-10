@@ -10,7 +10,7 @@ import RxSwift
 
 protocol RootRouting: ViewableRouting {
     func routeToLogin()
-    func routeToMain()
+    func routeToMain() -> MainActionableItem
 }
 
 protocol RootPresentable: Presentable {
@@ -22,10 +22,12 @@ protocol RootListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
+final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener, RootActionableItem, URLHandler {
 
     weak var router: RootRouting?
     weak var listener: RootListener?
+    
+    private let mainActionableItemSubject = PublishSubject<MainActionableItem>()
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -37,7 +39,11 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override func didBecomeActive() {
         super.didBecomeActive()
         
-        isLoggedIn() ? router?.routeToMain() : router?.routeToLogin()
+        if isLoggedIn() {
+            routeToMain()
+        } else {
+            router?.routeToLogin()
+        }
     }
 
     override func willResignActive() {
@@ -49,13 +55,35 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
         return UserDefaults.standard.string(forKey: "ribs_userid") != nil
     }
     
+    private func routeToMain() {
+        let mainActionableItem = router?.routeToMain()
+        if let mainActionableItem = mainActionableItem {
+            mainActionableItemSubject.onNext(mainActionableItem)
+        }
+    }
+    
     // MARK: - LoginListener
     func dismissLoginFlow() {
-        router?.routeToMain()
+        routeToMain()
     }
 
     // MARK: - MainListener
     func dismissMainFlow() {
         router?.routeToLogin()
     }
+    
+    // MARK: - URLHandler
+    func handle(_ url: URL) {
+        let openInfoWorkflow = OpenInfoWorkflow(url: url)
+            openInfoWorkflow
+                .subscribe(self)
+                .disposeOnDeactivate(interactor: self)
+    }
+    
+    // MARK: - RootActionableItem
+    func waitForLogin() -> Observable<(MainActionableItem, ())> {
+        return mainActionableItemSubject
+            .map { ($0, ())}
+    }
+    
 }

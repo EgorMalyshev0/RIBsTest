@@ -6,6 +6,7 @@
 //
 
 import RIBs
+import RxSwift
 
 protocol RootDependency: LoginDependency, MainDependency {}
 
@@ -32,7 +33,7 @@ final class AppComponent: Component<EmptyDependency>, RootDependency {
 // MARK: - Builder
 
 protocol RootBuildable: Buildable {
-    func build() -> LaunchRouting
+    func build() -> (router: LaunchRouting, urlHandler: URLHandler)
 }
 
 final class RootBuilder: Builder<RootDependency>, RootBuildable {
@@ -41,7 +42,7 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         super.init(dependency: dependency)
     }
 
-    func build() -> LaunchRouting {
+    func build() -> (router: LaunchRouting, urlHandler: URLHandler) {
         let viewController = RootViewController()
         let component = RootComponent(
             dependency: dependency,
@@ -49,11 +50,11 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         )
         
         let interactor = RootInteractor(presenter: viewController)
-        
-        return RootRouter(
+        let router = RootRouter(
             interactor: interactor,
             viewController: viewController,
             loginBuilder: LoginBuilder(dependency: component.dependency), mainBuilder: MainBuilder(dependency: component.dependency)
         )
+        return (router, interactor)
     }
 }

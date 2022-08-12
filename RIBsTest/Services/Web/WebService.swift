@@ -19,7 +19,8 @@ final class WebService: WebServicing {
         }
     }
  
-    enum LoginError: String, Error {
-        case invalidCredentials = "Invalid credentials"
-    }
+}
+
+enum LoginError: String, Error {
+    case invalidCredentials = "Invalid credentials"
 }
